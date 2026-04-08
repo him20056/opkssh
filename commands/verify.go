@@ -118,6 +118,8 @@ func (v *VerifyCmd) AuthorizedKeysCommand(ctx context.Context, userArg string, t
 			}
 		}
 
+		log.Println("Him userInfo: %s", userInfo)
+
 		if err := v.CheckPolicy(userArg, pkt, userInfo, certB64Arg, typArg, v.denyList, extraArgs); err != nil {
 			return "", err
 		} else { // Success!
